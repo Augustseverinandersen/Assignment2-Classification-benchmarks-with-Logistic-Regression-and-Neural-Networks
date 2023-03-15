@@ -17,22 +17,24 @@ from sklearn.neural_network import MLPClassifier
 
 # Getting the data 
 print("Getting the data")
-(X_train, y_train), (X_test, y_test) = cifar10.load_data() # .load_data # returns 4 objects # () groups them together. # Creating a tuple. 
+
+def load_data()
+          (X_train, y_train), (X_test, y_test) = cifar10.load_data() # .load_data # returns 4 objects # () groups them together. # Creating a tuple. 
 
 
-# Creating labels to be used later 
-# the current labels are just numbers from 1-9
-labels = ["airplane", 
-          "automobile", 
-          "bird", 
-          "cat", 
-          "deer", 
-          "dog", 
-          "frog", 
-          "horse", 
-          "ship", 
-          "truck"]
-
+          # Creating labels to be used later 
+          # the current labels are just numbers from 1-9
+          labels = ["airplane", 
+                    "automobile", 
+                    "bird", 
+                    "cat", 
+                    "deer", 
+                    "dog", 
+                    "frog", 
+                    "horse", 
+                    "ship", 
+                    "truck"]
+          return X_train, y_train, X_test, y_test
 
 # Converting to grey scale 
 print("Converting to greyscale")
@@ -102,6 +104,7 @@ def saving_report(data_report):
 
 
 def main_function():
+    X_train, y_train, X_test, y_test = load_data()
     X_train_greyscale, X_test_grayscale = greyscale(X_train, X_test)
     X_train_dataset_done, X_test_dataset_done = reshaping(X_train_greyscale, X_test_grayscale)
     clf_done = logistic_regression_classifier(X_train_dataset_done, y_train)
