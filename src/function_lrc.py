@@ -21,7 +21,6 @@ print("Getting the data")
 def load_data()
           (X_train, y_train), (X_test, y_test) = cifar10.load_data() # .load_data # returns 4 objects # () groups them together. # Creating a tuple. 
 
-
           # Creating labels to be used later 
           # the current labels are just numbers from 1-9
           labels = ["airplane", 
@@ -34,7 +33,7 @@ def load_data()
                     "horse", 
                     "ship", 
                     "truck"]
-          return X_train, y_train, X_test, y_test
+          return X_train, y_train, X_test, y_test, labels
 
 # Converting to grey scale 
 print("Converting to greyscale")
@@ -104,12 +103,13 @@ def saving_report(data_report):
 
 
 def main_function():
-    X_train, y_train, X_test, y_test = load_data()
+    X_train, y_train, X_test, y_test, labels = load_data()
     X_train_greyscale, X_test_grayscale = greyscale(X_train, X_test)
     X_train_dataset_done, X_test_dataset_done = reshaping(X_train_greyscale, X_test_grayscale)
     clf_done = logistic_regression_classifier(X_train_dataset_done, y_train)
     y_prediction = prediction(clf_done, X_test_dataset_done)
     calculated_report = validation(y_test, y_prediction, labels)
+    print(calculated_report)
     saving_report(calculated_report)
 
 
