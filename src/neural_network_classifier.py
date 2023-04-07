@@ -18,8 +18,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
 
 # Getting the data 
-print("Getting the data")
+
 def load_data():
+    print("Getting the data")
     (X_train, y_train), (X_test, y_test) = cifar10.load_data() # .load_data # returns 4 objects # () groups them together. # Creating a tuple. 
 
     # Creating labels to be used later 
@@ -37,8 +38,9 @@ def load_data():
     return X_train, y_train, X_test, y_test, labels
 
 # Converting to grey scale 
-print("Converting to greyscale")
+
 def greyscale(data_train, data_test):
+    print("Converting to greyscale")
     X_train_grey = np.array([cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) for image in data_train])
     X_test_grey = np.array([cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) for image in data_test])
     # Using opencvs colour conversion model 
@@ -51,8 +53,9 @@ def greyscale(data_train, data_test):
     return X_train_scaled, X_test_scaled
 
 # Reshaping the training data  
-print("Reshaping the data")
+
 def reshaping(data_train_greyscale, data_test_greyscale):
+    print("Reshaping the data")
     nsamples, nx, ny = data_train_greyscale.shape
     # new shape to be two values, 50 000 and 1024 (32 times 32)  
     X_train_dataset = data_train_greyscale.reshape((nsamples,nx*ny))
@@ -64,9 +67,9 @@ def reshaping(data_train_greyscale, data_test_greyscale):
     return X_train_dataset, X_test_dataset
 
 # Neural Network
-print("Training neural network")
 
 def neural_network_function(X_train_dataset, y_train):
+    print("Training neural network")
     clf = MLPClassifier(random_state=42, 
                         hidden_layer_sizes=(100, 10), #hidden layers, everytime it goes from one layer to another and a weight changes it goes back and starts agian.
                         learning_rate="adaptive", # beginning of the model it will just be guessing. we want it to learn quickly. as soon as it learns a bit, we get it to slow down, and think more about how to predict.
@@ -78,12 +81,14 @@ def neural_network_function(X_train_dataset, y_train):
 
 # Getting the predictions 
 def prediction(model, data):
+    print("Predictions")
     y_pred = model.predict(data)
 
     return y_pred
 
 # Creating a report 
-def validation(test_labels, test_prediction, my_labels): 
+def validation(test_labels, test_prediction, my_labels):
+    print("Validation") 
     report = classification_report(test_labels, 
                                 test_prediction, 
                                 target_names=my_labels) # setting labels 
@@ -101,6 +106,7 @@ def saving_report(data_report):
 
 
 def main_function():
+    print("Neural Network Script:")
     X_train, y_train, X_test, y_test, labels = load_data()
     X_train_greyscale, X_test_grayscale = greyscale(X_train, X_test)
     X_train_dataset_done, X_test_dataset_done = reshaping(X_train_greyscale, X_test_grayscale)
