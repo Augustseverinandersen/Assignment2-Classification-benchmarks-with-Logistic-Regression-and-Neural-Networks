@@ -9,7 +9,12 @@
   2. *The image should be photo-realistic*
   3. *The image should contain only one prominent instance of the object to which the class refers*
 ## Packages
-
+- Os
+- Numpy 
+- Cv2
+- Tensorflow 
+- Scikit Learn
+- 
 ## Repository contents
 ## Machine Specifications and my usage
 ## Assignment Description
