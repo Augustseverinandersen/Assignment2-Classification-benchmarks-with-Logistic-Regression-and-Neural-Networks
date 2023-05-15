@@ -1,5 +1,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10448918&assignment_repo_type=AssignmentRepo)
 # Assignment 2 - Classification benchmarks with Logistic Regression and Neural Networks
+
+# MLPCLASSIFIER used in neural network script. Remove it from logisitc script. 
 ## Contribution
 - The code in this repository was made in collaboration with my fellow students. 
 - In code comments are made by me.
@@ -10,16 +12,33 @@
   3. *The image should contain only one prominent instance of the object to which the class refers*
 ## Packages
 - Os
+  - Is used to navigate filepaths 
 - Numpy 
+  - Is used to handle arrays, and data munging.
 - Cv2
+  - Is used to convert the images from colour to greyscale.
 - Tensorflow 
+  - Tensorflow is used to import the CIFAR-10 dataset.
 - Scikit Learn
-- 
+  - Is used to create a train-test split, create a classification report, create a logistic regression, and to create the neural network.
 ## Repository contents
+- This repository contains the following folders and file:
+  - assignment_2
+    - This folder contains the virtual environment
+  - out 
+    - This folder contains the classification reports
+  - src
+    - This folder contains the two scripts, *logistic_regression_classifier.py* and *neural_network_classifier.py*
+  - README.md
+    - The README file for this repository
+  - requirements.txt
+    - Version controlled packages that will be installed.
+  - setup.sh
+    - The setup file, that creates a virtual environment, and installs the requirements.txt file.
 ## Machine Specifications and my usage
+
 ## Assignment Description
 For this assignment, we'll be writing scripts which classify the ```Cifar10``` dataset.
-
 You should write code which does the following:
 
 - Load the Cifar10 dataset
@@ -28,6 +47,7 @@ You should write code which does the following:
 - Save a classification report
 
 You should write one script which does this for a logistic regression classifier **and** one which does it for a neural network classifier. In both cases, you should use the machine learning tools available via ```scikit-learn```.
+
 ## Methods / What the code does
 ## Discussion 
 ## Usage
