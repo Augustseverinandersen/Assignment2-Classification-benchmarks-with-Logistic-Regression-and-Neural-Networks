@@ -41,7 +41,6 @@ This repository contains the following folders and file:
 -	After grey scaling the data is then rescaled by dividing by 255 (number of pixels). By doing so we normalize the data to between 0-1, making it easier to compute. 
 -	The data is then reshaped. The function gets the shape of the data and splits it into three variables, _nsamples_ which is the number of samples, _nx_ (x dimensions) which is 32, and _ny_ (y dimensions) which is 32. The data is then reshaped into a tuple by keeping _nsamples_ and by multiplying _nx_ with _ny_. This gives the data a new shape of 50 000 and 1024. 
 -	The logistic regression is then created with the following arguments:
- - dfdf
  - _penalty = none_. Keeping all weights
  - _tol = float(args.tolerance)_. The tolerance can be set by you. A default of 0.1 is given. Float transformation is used here, as the argparse takes the input as a string.
  - _verbose = True_. Prints the output to the command line.
@@ -90,5 +89,6 @@ To run the scripts in this repository, follow these steps:
  - The argparse ``--tolerance`` has a default value of 0.1. You can change it to see how the model performance changes.  The argparse takes a string as input but is changed to a float in the script. 
 -	In the command line run ``python3 src/neural_network_classifier.py --max_iterations 50``. This will run the neural network classifier.
  - The argparse ``--max_iterations`` has a default value of 20. You can change it to see how the model’s performance differs. The argparse takes an integer as input.
+    
 
 
