@@ -41,7 +41,7 @@ This repository contains the following folders and file:
 -	After grey scaling the data is then rescaled by dividing by 255 (number of pixels). By doing so we normalize the data to between 0-1, making it easier to compute. 
 -	The data is then reshaped. The function gets the shape of the data and splits it into three variables, _nsamples_ which is the number of samples, _nx_ (x dimensions) which is 32, and _ny_ (y dimensions) which is 32. The data is then reshaped into a tuple by keeping _nsamples_ and by multiplying _nx_ with _ny_. This gives the data a new shape of 50 000 and 1024. 
 -	The logistic regression is then created with the following arguments:
- - _penalty = none_. Keeping all weights
+  - _penalty = none_. Keeping all weights
  - _tol = float(args.tolerance)_. The tolerance can be set by you. A default of 0.1 is given. Float transformation is used here, as the argparse takes the input as a string.
  - _verbose = True_. Prints the output to the command line.
  - _solver="saga"_. Is used for multiclass problems.
