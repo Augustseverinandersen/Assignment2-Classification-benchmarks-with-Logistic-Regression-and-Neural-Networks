@@ -36,19 +36,19 @@ This repository contains the following folders and file:
 -	**setup.sh** the setup file, that creates a virtual environment, and installs packages from the requirements.txt file.
 ## 2.6 Methods / What the Code Does
 ### 2.6.1 Logistic Regression Script:
--	The logistic regression script starts by loading the CIFAR-10 dataset from TensorFlow into four variables. The four variables are train images and labels and test images and labels. 10 labels are also created which will be used in the classification report since the current labels are just numbers.
--	Next, the script converts the images into greyscale by using _cv2.cvtColor_ and specifying that it is colour images to greyscale. The grey-scaled images are stored as a NumPy array. 
+--	The logistic regression script starts by loading the CIFAR-10 dataset from TensorFlow into four variables. The four variables are train images and labels and test images and labels. 10 labels are also created which will be used in the classification report since the current labels are just numbers.
+-	Next, the script converts the images into greyscale by using cv2.cvtColor and specifying that it is colour images to greyscale. The grey-scaled images are stored as a NumPy array. 
 -	After grey scaling the data is then rescaled by dividing by 255 (number of pixels). By doing so we normalize the data to between 0-1, making it easier to compute. 
--	The data is then reshaped. The function gets the shape of the data and splits it into three variables, _nsamples_ which is the number of samples, _nx_ (x dimensions) which is 32, and _ny_ (y dimensions) which is 32. The data is then reshaped into a tuple by keeping _nsamples_ and by multiplying _nx_ with _ny_. This gives the data a new shape of 50 000 and 1024. 
+-	The data is then reshaped. The function gets the shape of the data and splits it into three variables, nsamples which is the number of samples, nx (x dimensions) which is 32, and ny (y dimensions) which is 32. The data is then reshaped into a tuple by keeping nsamples and by multiplying nx with ny. This gives the data a new shape of 50 000 and 1024. 
 -	The logistic regression is then created with the following arguments:
- - _penalty = none_. Keeping all weights
-
- - _tol = float(args.tolerance)_. The tolerance can be set by you. A default of 0.1 is given. Float transformation is used here, as the argparse takes the input as a string.
- - _verbose = True_. Prints the output to the command line.
- - _solver="saga"_. Is used for multiclass problems.
- - _multi_class="multinomial"_. Specifying a multiclass classification. 
+ - penalty = none. Keeping all weights
+ - tol = float(args.tolerance). The tolerance can be set by you. A default of 0.1 is given. Float transformation is used here, as the argparse takes the input as a string.
+ - verbose = True. Prints the output to the command line.
+ - solver="saga". Is used for multiclass problems.
+ - multi_class="multinomial". Specifying a multiclass classification. 
 -	The training data and labels are then fitted to the logistic regression, and the logistic regression is trained. 
 -	Lastly, the script uses the test data to get predictions from the trained logistic regression model, a classification report of the predictions is created, and the model is saved.
+
 ### 2.6.2 Neural Network Script:
 -	The neural network script loads the CIFAR-10 dataset into four variables, and creates label string names, for the dataset. 
 -	The images are then converted to greyscale, rescaled, and reshaped in the same way as with the logistic regression script. 
