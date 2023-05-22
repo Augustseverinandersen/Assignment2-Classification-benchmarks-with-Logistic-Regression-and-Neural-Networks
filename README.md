@@ -5,8 +5,9 @@
 
 ## 2.1 Assignment Description
 Written by Ross:
--	For this assignment, we'll be writing scripts that classify the Cifar10 dataset. You should write code that does the following: Load the CIFAR-10 dataset, and pre-process the data (e.g. greyscale, reshape). Train a classifier on the data and save a classification report. 
--	You should write one script which does this for a logistic regression classifier and one which does it for a neural network classifier. In both cases, you should use the machine learning tools available via scikit-learn.
+For this assignment, we'll be writing scripts that classify the Cifar10 dataset. You should write code that does the following: Load the CIFAR-10 dataset, and pre-process the data (e.g. greyscale, reshape). Train a classifier on the data and save a classification report. 
+
+You should write one script which does this for a logistic regression classifier and one which does it for a neural network classifier. In both cases, you should use the machine learning tools available via scikit-learn.
 ## 2.2 Machine Specifications and My Usage
 All the computation done for this project was performed on the UCloud interactive HPC system, which is managed by the eScience Center at the University of Southern Denmark. Python version 1.73.1. It took nine minutes to run on a 16-CPU machine, with `--tolerance` set at 0.04 in script `logistic_regression_classifier.py`, and `--max_iterations` set at 50 in script ``neural_network_classifier.py``.
 ### 2.2.1 Prerequisites
@@ -36,16 +37,16 @@ This repository contains the following folders and file:
 -	**setup.sh** the setup file, that creates a virtual environment, and installs packages from the requirements.txt file.
 ## 2.6 Methods / What the Code Does
 ### 2.6.1 Logistic Regression Script:
---	The logistic regression script starts by loading the CIFAR-10 dataset from TensorFlow into four variables. The four variables are train images and labels and test images and labels. 10 labels are also created which will be used in the classification report since the current labels are just numbers.
--	Next, the script converts the images into greyscale by using cv2.cvtColor and specifying that it is colour images to greyscale. The grey-scaled images are stored as a NumPy array. 
+-	The logistic regression script starts by loading the CIFAR-10 dataset from TensorFlow into four variables. The four variables are train images and labels and test images and labels. 10 labels are also created which will be used in the classification report since the current labels are just numbers.
+-	Next, the script converts the images into greyscale by using _cv2.cvtColor_ and specifying that it is colour images to greyscale. The grey-scaled images are stored as a NumPy array. 
 -	After grey scaling the data is then rescaled by dividing by 255 (number of pixels). By doing so we normalize the data to between 0-1, making it easier to compute. 
 -	The data is then reshaped. The function gets the shape of the data and splits it into three variables, nsamples which is the number of samples, nx (x dimensions) which is 32, and ny (y dimensions) which is 32. The data is then reshaped into a tuple by keeping nsamples and by multiplying nx with ny. This gives the data a new shape of 50 000 and 1024. 
 -	The logistic regression is then created with the following arguments:
- - penalty = none. Keeping all weights
- - tol = float(args.tolerance). The tolerance can be set by you. A default of 0.1 is given. Float transformation is used here, as the argparse takes the input as a string.
- - verbose = True. Prints the output to the command line.
- - solver="saga". Is used for multiclass problems.
- - multi_class="multinomial". Specifying a multiclass classification. 
+    - _penalty = none_. Keeping all weights
+    - _tol = float(args.tolerance)_. The tolerance can be set by you. A default of 0.1 is given. Float transformation is used here, as the argparse takes the input as a string.
+    - _verbose = True_. Prints the output to the command line.
+     - _solver="saga"_. Is used for multiclass problems.
+     - _multi_class="multinomial"_. Specifying a multiclass classification. 
 -	The training data and labels are then fitted to the logistic regression, and the logistic regression is trained. 
 -	Lastly, the script uses the test data to get predictions from the trained logistic regression model, a classification report of the predictions is created, and the model is saved.
 
@@ -54,14 +55,13 @@ This repository contains the following folders and file:
 -	The images are then converted to greyscale, rescaled, and reshaped in the same way as with the logistic regression script. 
 -	The next step is the creation of the neural network with the following parameters:
 
-  - _random_state=42_. This sets a seed, so every time the script is run it runs on the same seed. Otherwise, it would run on different seeds, making comparison difficult.
-  - _hidden_layer_sizes_. This specifies the neural network’s structure, which is two layers. The first layer has 100 neurons and the second has 10 neurons.
-  - _learning_rate="adaptive"_. By choosing adaptive, the learning rate changes during training. It starts quickly but as the model learns it gets slower and makes smaller adjustments. This makes the predictions more    fine-tuned.
-  - _early_stopping=True_. By setting it to True the model stops when it is not improving anymore, thereby preventing overfitting the model.
-  - _validation_fraction = 0.2_. Creating a validation split of 20% of the training images for each class.
-  - _verbose = True_. Output is printed to the command line during training.
-  - _max_iter=args.max_iteration_. The max iterations can be chosen by the user but a default of 20 is set. If max_iteration is reached the model stops training. 
-
+	- _random_state=42_. This sets a seed, so every time the script is run it runs on the same seed. Otherwise, it would run on different seeds, making comparison difficult.
+	- _hidden_layer_sizes_. This specifies the neural network’s structure, which is two layers. The first layer has 100 neurons and the second has 10 neurons.
+	- _learning_rate="adaptive"_. By choosing adaptive, the learning rate changes during training. It starts quickly but as the model learns it gets slower and makes smaller adjustments. This makes the predictions more    fine-tuned.
+	- _early_stopping=True_. By setting it to True the model stops when it is not improving anymore, thereby preventing overfitting the model.
+	- _validation_fraction = 0.2_. Creating a validation split of 20% of the training images for each class.
+	- _verbose = True_. Output is printed to the command line during training.
+	- _max_iter=args.max_iteration_. The max iterations can be chosen by the user but a default of 20 is set. If max_iteration is reached the model stops training. 
 -	The training data and labels are then fitted to the created neural network, and it starts training. 
 -	Lastly, the model is then tested on the training data, and a classification report on the predictions is created and saved.
 ## 2.7 Discussion
@@ -87,9 +87,6 @@ To run the scripts in this repository, follow these steps:
 -	Run ``bash setup.sh`` in the command line. This will create a virtual environment and install the packages specified in the requirements files.
 -	Run ``source ./assignment_2/bin/activate`` in the command-line, to activate the virtual environment.
 -	In the command line run ``python3 src/logistic_regression_classifier.py --tolerance 0.1``. This will run the logistic regression classifier.
- - The argparse ``--tolerance`` has a default value of 0.1. You can change it to see how the model performance changes.  The argparse takes a string as input but is changed to a float in the script. 
+	 - The argparse ``--tolerance`` has a default value of 0.1. You can change it to see how the model performance changes.  The argparse takes a string as input but is changed to a float in the script. 
 -	In the command line run ``python3 src/neural_network_classifier.py --max_iterations 50``. This will run the neural network classifier.
- - The argparse ``--max_iterations`` has a default value of 20. You can change it to see how the model’s performance differs. The argparse takes an integer as input.
-    
-
-
+	 - The argparse ``--max_iterations`` has a default value of 20. You can change it to see how the model’s performance differs. The argparse takes an integer as input.
