@@ -10,8 +10,6 @@ source ./assignment_2/bin/activate
 python3 -m pip install --upgrade pip
 python3 -m pip install -r requirements.txt
 
-# Run the code 
-
 
 # Deactivate the virtual environment.
 deactivate

@@ -84,6 +84,7 @@ I tried two different numbers of max iterations for the neural network. The firs
 ## 2.8 Usage
 To run the scripts in this repository, follow these steps:
 -	Clone the repository.
+- Navigate to the correct directory.
 -	Run ``bash setup.sh`` in the command line. This will create a virtual environment and install the packages specified in the requirements files.
 -	Run ``source ./assignment_2/bin/activate`` in the command-line, to activate the virtual environment.
 -	In the command line run ``python3 src/logistic_regression_classifier.py --tolerance 0.1``. This will run the logistic regression classifier.
