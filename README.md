@@ -52,13 +52,15 @@ This repository contains the following folders and file:
 -	The neural network script loads the CIFAR-10 dataset into four variables, and creates label string names, for the dataset. 
 -	The images are then converted to greyscale, rescaled, and reshaped in the same way as with the logistic regression script. 
 -	The next step is the creation of the neural network with the following parameters:
- - _random_state=42_. This sets a seed, so every time the script is run it runs on the same seed. Otherwise, it would run on different seeds, making comparison difficult.
- - _hidden_layer_sizes_. This specifies the neural network’s structure, which is two layers. The first layer has 100 neurons and the second has 10 neurons.
- - _learning_rate="adaptive"_. By choosing adaptive, the learning rate changes during training. It starts quickly but as the model learns it gets slower and makes smaller adjustments. This makes the predictions more fine-tuned.
- - _early_stopping=True_. By setting it to True the model stops when it is not improving anymore, thereby preventing overfitting the model.
- - _validation_fraction = 0.2_. Creating a validation split of 20% of the training images for each class.
- - _verbose = True_. Output is printed to the command line during training.
- - _max_iter=args.max_iteration_. The max iterations can be chosen by the user but a default of 20 is set. If max_iteration is reached the model stops training. 
+
+  - _random_state=42_. This sets a seed, so every time the script is run it runs on the same seed. Otherwise, it would run on different seeds, making comparison difficult.
+  - _hidden_layer_sizes_. This specifies the neural network’s structure, which is two layers. The first layer has 100 neurons and the second has 10 neurons.
+  - _learning_rate="adaptive"_. By choosing adaptive, the learning rate changes during training. It starts quickly but as the model learns it gets slower and makes smaller adjustments. This makes the predictions more    fine-tuned.
+  - _early_stopping=True_. By setting it to True the model stops when it is not improving anymore, thereby preventing overfitting the model.
+  - _validation_fraction = 0.2_. Creating a validation split of 20% of the training images for each class.
+  - _verbose = True_. Output is printed to the command line during training.
+  - _max_iter=args.max_iteration_. The max iterations can be chosen by the user but a default of 20 is set. If max_iteration is reached the model stops training. 
+
 -	The training data and labels are then fitted to the created neural network, and it starts training. 
 -	Lastly, the model is then tested on the training data, and a classification report on the predictions is created and saved.
 ## 2.7 Discussion
