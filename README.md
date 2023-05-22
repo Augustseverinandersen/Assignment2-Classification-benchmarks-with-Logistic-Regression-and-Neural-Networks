@@ -16,9 +16,9 @@ The code in this repository was made in collaboration with my fellow students.
 The data used in this assignment was created by the _Canadian Institute for Advanced Research_ (CIFAR).
 ### 2.3.1 Data
 CIFAR-10 consists of 10 classes, each containing 60 000 32x32 pixel colour images. The classes are _airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck_. Each class consists of 5 000 training images and 1 000 test images. According to the [documentation](https://www.cs.toronto.edu/~kriz/cifar.html), the classes do not overlap. Meaning that the class _automobile_ and _truck_ do not contain the same types of vehicles. When building the dataset, the following criteria were in place to decide if an image was good enough - [source](https://paperswithcode.com/dataset/cifar-10):
-i.	_The class name should be high on the list of likely answers to the question "What is in this picture?"_
-ii.	_The image should be photorealistic._
-iii.	_The image should contain only one prominent instance of the object to which the class refers._
+1. _The class name should be high on the list of likely answers to the question "What is in this picture?"_
+2.	_The image should be photorealistic._
+3.	_The image should contain only one prominent instance of the object to which the class refers._
 ## 2.4 Packages
 These are the packages that I used to make the two scripts:
 -	Os is used to navigate file paths, on different operating systems.
