@@ -1,7 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10448918&assignment_repo_type=AssignmentRepo)
 # Assignment 2 - Classification benchmarks with Logistic Regression and Neural Networks
- 
-# Assignment 2 - Classification benchmarks with Logistic Regression and Neural Networks
 
 ## 2.1 Assignment Description
 Written by Ross:
@@ -9,7 +7,7 @@ For this assignment, we'll be writing scripts that classify the Cifar10 dataset.
 
 You should write one script which does this for a logistic regression classifier and one which does it for a neural network classifier. In both cases, you should use the machine learning tools available via scikit-learn.
 ## 2.2 Machine Specifications and My Usage
-All the computation done for this project was performed on the UCloud interactive HPC system, which is managed by the eScience Center at the University of Southern Denmark. Python version 1.73.1. It took nine minutes to run on a 16-CPU machine, with `--tolerance` set at 0.04 in script `logistic_regression_classifier.py`, and `--max_iterations` set at 50 in script ``neural_network_classifier.py``.
+All the computation done for this project was performed on the UCloud interactive HPC system, which is managed by the eScience Center at the University of Southern Denmark. This script ran on Coder Python 1.73.1 and Python version 1.73.1. It took nine minutes to run on a 16-CPU machine, with `--tolerance` set at 0.04 in script `logistic_regression_classifier.py`, and `--max_iterations` set at 50 in script ``neural_network_classifier.py``.
 ### 2.2.1 Prerequisites
 To run this script, make sure to have Bash and Python 3 installed on your device. This script has only been tested on Ucloud. 
 ## 2.3 Contribution
